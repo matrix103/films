@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Footer from "./components/Footer/Footer";
+import Main from "./components/Main/Main";
+import FavouriteFilmsContainer from "./components/FavouriteFilms/FavouriteFilmsContainer";
+import {Route, Routes} from "react-router-dom";
+import {Container} from "@mui/material";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <HeaderContainer />
+        <Container fixed sx={{ minHeight: 'calc(100vh - 124px)' }}>
+            <Routes>
+                <Route path='/favouriteFilms' element={<FavouriteFilmsContainer />}/>
+                <Route path='/films' element={<Main />}/>
+            </Routes>
+        </Container>
+        <Footer />
     </div>
   );
 }
